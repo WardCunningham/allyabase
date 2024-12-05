@@ -1,6 +1,6 @@
 {
   "name": "allyabase-js",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "JavaScript client for Allyabase",
   "main": "allyabase.js",
   "scripts": {
@@ -18,12 +18,12 @@
   },
   "homepage": "https://github.com/planet-nine-app/allyabase#readme",
   "dependencies": {
-    "addie-js": "^0.0.1",
-    "bdo-js": "^0.0.2",
-    "continuebee-js": "^0.0.1",
-    "fount-js": "^0.0.1",
-    "joan-js": "^0.0.1",
-    "julia-js": "^0.0.1",
-    "pn-pref-js": "^0.0.1"
+    "addie-js": "0.0.2",
+    "bdo-js": "0.0.4",
+    "continuebee-js": "0.0.2",
+    "fount-js": "0.0.3",
+    "joan-js": "0.0.2",
+    "julia-js": "0.0.2",
+    "pn-pref-js": "0.0.2"
   }
 }
