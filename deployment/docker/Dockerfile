@@ -57,6 +57,10 @@ WORKDIR /usr/src/app
 
 COPY start.sh /usr/src/app/
 RUN chmod +x /usr/src/app/start.sh
+
+ENV PM2_SAVE_INTERVAL=30000
+ENV PM2_LOG_DATE_FORMAT="YYYY-MM-DD HH:mm:ss.SSS"
+
 CMD ["./start.sh"]
 
 
