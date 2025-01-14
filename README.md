@@ -29,9 +29,13 @@ Those functions will be discussed in brief here, with links to their API documen
 
 [Addie][addie]: The accountant of the miniservices. Handles splitting up transactions, and signing people up for processors.
 
+[Artha][aretha]: Lets you allocate a group of nineum from Fount for use in limited run products (think things like tickets, or media rentals).
+
 [BDO][bdo]: Sometimes you just need to store a Big Dumb Object
 
 [Continuebee][continuebee]: Saves and checks client state to verify local state matches expected state.
+
+[Dolores][dolores]: Saves short-form videos, and provides a tag-based categorization system for them
 
 [Fount][fount]: Ok, so there's this thing called [MAGIC][magic], and you don't really need to know about it, but it allows you to do the whole linking people together for transactions (both with money and not money). And along with this you can do some other rewards.
 
@@ -40,6 +44,8 @@ Those functions will be discussed in brief here, with links to their API documen
 [Julia][julia]: Peer to peer associations for messaging, and coming soon for intra client assciating.
 
 [Pref][pref]: Stored preferences (or any key/value pair really). Also allows for global preferences across clients.
+
+[Sanora][sanora]: Super lightweight product hosting like gumroad or big cartel
 
 ### Tech Stack
 
@@ -82,7 +88,7 @@ From the root of the project run:
 
 then:
 
-`docker run -p 2999:2999 -p 3000:3000 -p 3001:3001 -p 3002:3002 -p 3003:3003 -p 3004:3004 -p 3005:3005 -p 3006:3006 allyabase`
+`docker run -p 2999:2999 -p 3000:3000 -p 3001:3001 -p 3002:3002 -p 3003:3003 -p 3004:3004 -p 3005:3005 -p 3006:3006 -p 3007:3007 -p 7423:7423 -p 7277:7277 allyabase`
 
 This will expose the services on each of these ports. 
 You can then verify they're running by running the tests in `test/mocha` with `mocha addie.js bdo.js continuebee.js fount.js julia.js joan.js pref.js`
@@ -105,12 +111,15 @@ This project would not be possible without the support and contributions of the 
 [sessionless]: https://www.github.com/planet-nine-app/sessionless
 [magic]: https://www.github.com/planet-nine-app/magic
 [addie]: https://www.github.com/planet-nine-app/addie
+[aretha]: https://www.github.com/planet-nine-app/aretha
 [bdo]: https://www.github.com/planet-nine-app/bdo
 [continuebee]: https://www.github.com/planet-nine-app/continuebee
+[dolores]: https://www.github.com/planet-nine-app/dolores
 [fount]: https://www.github.com/planet-nine-app/fount
 [joan]: https://www.github.com/planet-nine-app/joan
 [julia]: https://www.github.com/planet-nine-app/julia
 [pref]: https://www.github.com/planet-nine-app/pref
+[sanora]: https://www.github.com/planet-nine-app/sanora-dot-club
 [juliachat]: https://www.github.com/planet-nine-app/JuliaChat
 
 [ht1]: ## "In the hierarchy of non-centralized systems it goes decentralized (like blockchain), then federated (like the Fediverse), then interoperable (like cellular networks, or the world wide web). Interoperability was actually the norm in the years before the internet. You don't have to have different pens for different notebooks."

@@ -53,3 +53,5 @@ module.exports = {
 EOL
 
 pm2-runtime start ecosystem.config.js
+
+echo Don't forget to update the configs in addie, aretha, and sanora.
