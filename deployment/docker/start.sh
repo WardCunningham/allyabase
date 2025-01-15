@@ -36,7 +36,12 @@ module.exports = {
     {
       name: 'addie',
       script: '/usr/src/app/addie/src/server/node/addie.js',
-      env: { LOCALHOST: 'true' }
+      env: { 
+        LOCALHOST: 'true', 
+        STRIPE_KEY: '<api key here>', 
+        STRIPE_PUBLISHING_KEY: '<publishing key here>',
+        SQUARE_KEY: '<api key here>'
+      }
     },
     {
       name: 'aretha',
@@ -54,4 +59,3 @@ EOL
 
 pm2-runtime start ecosystem.config.js
 
-echo Don't forget to update the configs in addie, aretha, and sanora.
