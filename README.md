@@ -82,7 +82,7 @@ allyabase is meant to be _interoperable_ with any service that utilizes public k
 
 ##### Docker
 
-From the root of the project run:
+From the root of the project run the build script: `build-and-run.sh` or the following commands.
 
 `docker build -t allyabase .`
 
@@ -106,7 +106,7 @@ If you'd like to add an allyabase client, you should submit a PR with a video of
 
 ### Open Source Force
 
-This project would not be possible without the support and contributions of the excellent people of Open Source Force. 
+This project would not be possible without the support and contributions of the excellent people of [Open Source Force][osf].
 
 [sessionless]: https://www.github.com/planet-nine-app/sessionless
 [magic]: https://www.github.com/planet-nine-app/magic
@@ -121,6 +121,7 @@ This project would not be possible without the support and contributions of the 
 [pref]: https://www.github.com/planet-nine-app/pref
 [sanora]: https://www.github.com/planet-nine-app/sanora-dot-club
 [juliachat]: https://www.github.com/planet-nine-app/JuliaChat
+[osf]: https://opensourceforce.net
 
 [ht1]: ## "In the hierarchy of non-centralized systems it goes decentralized (like blockchain), then federated (like the Fediverse), then interoperable (like cellular networks, or the world wide web). Interoperability was actually the norm in the years before the internet. You don't have to have different pens for different notebooks."
 [ht2]: ## "A bridge language. Like common in DnD."
