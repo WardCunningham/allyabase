@@ -52,6 +52,11 @@ module.exports = {
       name: 'sanora',
       script: '/usr/src/app/sanora/src/server/node/sanora-club.js',
       env: { LOCALHOST: 'true' }
+    },
+    {
+      name: 'dolores',
+      script: '/usr/src/app/dolores/src/server/node/dolores.js',
+      env: { LOCALHOST: 'true' }
     }
   ]
 }
