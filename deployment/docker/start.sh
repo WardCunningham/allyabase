@@ -50,7 +50,7 @@ module.exports = {
     },
     {
       name: 'sanora',
-      script: '/usr/src/app/sanora/src/server/node/sanora-club.js',
+      script: '/usr/src/app/sanora/src/server/node/sanora.js',
       env: { LOCALHOST: 'true' }
     },
     {

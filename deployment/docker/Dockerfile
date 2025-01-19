@@ -12,7 +12,7 @@ RUN git clone https://www.github.com/planet-nine-app/bdo.git bdo
 RUN git clone https://www.github.com/planet-nine-app/fount.git fount
 RUN git clone https://www.github.com/planet-nine-app/addie.git addie
 RUN git clone https://www.github.com/planet-nine-app/aretha.git aretha
-RUN git clone https://www.github.com/planet-nine-app/sanora-dot-club.git sanora
+RUN git clone https://www.github.com/planet-nine-app/sanora.git sanora
 
 EXPOSE 2999
 EXPOSE 3000
