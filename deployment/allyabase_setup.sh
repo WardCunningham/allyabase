@@ -1,8 +1,4 @@
 #!/bin/bash
-# Dependencies:
-# git
-# nodejs
-# npm
 
 set -e
 
