@@ -1,4 +1,8 @@
 #!/bin/bash
+# Dependencies:
+# git
+# nodejs
+# npm
 
 set -e
 
@@ -8,15 +12,15 @@ buildDir="${1:-$tmpDir}"
 buildDir="${buildDir#./}/allyabase"
 ecosystem_config='ecosystem.config.js'
 services=(
-    'julia'
-    'continuebee'
-    'joan'
-    'pref'
-    'bdo'
-    'fount'
     'addie'
     'aretha'
-    'sanora-dot-club'
+    'bdo'
+    'continuebee'
+    'fount'
+    'joan'
+    'julia'
+    'pref'
+    'sanora'
 )
 
 detect_package_manager() {
@@ -149,7 +153,7 @@ setup_ecosystem() {
         printf '%s\n' \
             "    {" \
             "      name: '$service'," \
-            "      script: '$buildDir/$service/src/server/node/${service/-dot}.js'," \
+            "      script: '$buildDir/$service/src/server/node/${service}.js'," \
             "      env: $env" \
             "    }," >>"$ecosystem_config"
     done
