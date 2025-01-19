@@ -74,10 +74,10 @@ setup_dependencies() {
     )
     
     case "$pkg_manager" in
-        apt|apk-get|dnf|pacman|zypper|xbps|pkgin|pkg)
+        apt|apk-get|dnf|pacman|zypper|xbps|pkgin|pkg|emerge)
             package_map[node]="nodejs"
             ;;
-        emerge|pkg_add|brew)
+        pkg_add|brew)
             package_map[node]="node"
             ;;
         *)
