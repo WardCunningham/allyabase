@@ -4,14 +4,15 @@ WORKDIR /usr/src/app
 
 RUN apt-get update && apt-get install -y git
 
-RUN git clone https://www.github.com/planet-nine-app/julia.git julia
-RUN git clone https://www.github.com/planet-nine-app/continuebee.git continuebee
-RUN git clone https://www.github.com/planet-nine-app/joan.git joan
-RUN git clone https://www.github.com/planet-nine-app/pref.git pref
-RUN git clone https://www.github.com/planet-nine-app/bdo.git bdo
-RUN git clone https://www.github.com/planet-nine-app/fount.git fount
 RUN git clone https://www.github.com/planet-nine-app/addie.git addie
 RUN git clone https://www.github.com/planet-nine-app/aretha.git aretha
+RUN git clone https://www.github.com/planet-nine-app/bdo.git bdo
+RUN git clone https://www.github.com/planet-nine-app/continuebee.git continuebee
+RUN git clone https://www.github.com/planet-nine-app/dolores.git sanora
+RUN git clone https://www.github.com/planet-nine-app/fount.git fount
+RUN git clone https://www.github.com/planet-nine-app/joan.git joan
+RUN git clone https://www.github.com/planet-nine-app/julia.git julia
+RUN git clone https://www.github.com/planet-nine-app/pref.git pref
 RUN git clone https://www.github.com/planet-nine-app/sanora.git sanora
 
 EXPOSE 2999
@@ -40,6 +41,9 @@ WORKDIR /usr/src/app/pref/src/server/node
 RUN npm install
 
 WORKDIR /usr/src/app/bdo/src/server/node
+RUN npm install
+
+WORKDIR /usr/src/app/dolores/src/server/node
 RUN npm install
 
 WORKDIR /usr/src/app/fount/src/server/node
