@@ -1,8 +1,4 @@
 #!/bin/bash
-# Dependencies:
-# git
-# nodejs
-# npm
 
 set -e
 
@@ -35,6 +31,13 @@ setup_services() {
 } # setup_services
 
 setup_ecosystem() {
+    if [[ ! -f "package.json" || ! -f "package-lock.json" ]]; then
+        echo "Initializing npm in this directory..."
+        npm init -y
+    else
+        echo "Both package.json and package-lock.json are already present. Skipping initialization."
+    fi
+
     npm install pm2-runtime
 
     printf '%s\n' \
