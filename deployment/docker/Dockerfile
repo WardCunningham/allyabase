@@ -12,9 +12,11 @@ RUN git clone https://www.github.com/planet-nine-app/dolores.git dolores
 RUN git clone https://www.github.com/planet-nine-app/fount.git fount
 RUN git clone https://www.github.com/planet-nine-app/joan.git joan
 RUN git clone https://www.github.com/planet-nine-app/julia.git julia
+RUN git clone https://www.github.com/planet-nine-app/minnie.git julia
 RUN git clone https://www.github.com/planet-nine-app/pref.git pref
 RUN git clone https://www.github.com/planet-nine-app/sanora.git sanora
 
+EXPOSE 2525
 EXPOSE 2999
 EXPOSE 3000
 EXPOSE 3001
@@ -56,6 +58,9 @@ WORKDIR /usr/src/app/aretha/src/server/node
 RUN npm install
 
 WORKDIR /usr/src/app/sanora/src/server/node
+RUN npm install
+
+WORKDIR /usr/src/app/minnie/src/server/node
 RUN npm install
 
 WORKDIR /usr/src/app

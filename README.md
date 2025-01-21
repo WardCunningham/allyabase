@@ -7,6 +7,23 @@ In addition to referencing a time when the internet was weirder, it is meant as 
 
 allyabase wants to be a free, open source, self-hostable alternative to whatever other bases may be out there. 
 
+### Establishing a base
+
+If you're interested in hosting an allyabase base, but are unfamiliar with hosting in general, I recommend reading [this tutorial for setting up a minecraft server][minecraft] as it contains the concepts, and might also be more familiar to folks interested in hosting software for their friends.
+
+An instance of allyabase is called a base. 
+Like a minecraft server, bases are isolated instances of allyabase services.
+Unlike a minecraft server, bases can connect to each other as users. 
+
+This means if there's an app that consumes allyabase services, and you want only you and your friends to use it, you can create an allyabase instance and just use it, or if you want to make a globally spanning network of bases for some purpose you can do that too. 
+
+In this way, allyabase most closely resembles the Fediverse, but with two key differences.
+First, there is no ActivityPub-like protocol keeping everything together. 
+The individual services all take differently shaped data, and that can be modified to suit client needs because the services perform no operations (I think, I probably left one or two in by mistake) on their data.
+
+Second, the keys that represent a user are held by the user's device(s) instead of the server they connect with. 
+This means users can change servers, and migrate data, or not, at will, and client applications can aggregate data from different bases rather than relying on a single server.
+
 ### An aside on what's all going on here
 
 allyabase is a collection of miniservices[^1], which utilize the [Sessionless][sessionless] protocol (SLAP).
@@ -61,10 +78,10 @@ For an example of a repo with multiple implementations, checkout the TypeScript 
 
 ### Client SDKs
 
-Right now the client SDKs are being built into products that are being built using Sessionless and parts of allyabase. 
-For the open source Swift example you can checkout [JuliaChat][juliachat].
-Kotlin or Java will come after that.
-The JavaScript one should hopefully be done before anyone reads this, but if not, just know it's coming soon.
+In the repos for the miniservices are client sdks written in JavaScript and/or Rust. 
+Several of the JavaScript SDKs are also in npm.
+You will also find an allyabase SDK in this repo that combines them all. 
+This is a work in progress. 
 
 ### Roadmap
 
@@ -95,12 +112,15 @@ You can then verify they're running by running the tests in `test/mocha` with `m
 
 ##### Testing the dev server
 
+*NOTE:* Tests are currently broken in this repo as I have to move some things around. 
+I wasn't quite ready to share, but things got a little weird, and timelines had to be shortened a bit.
+
 You can run the local tests against the dev server with `DEV=true mocha addie.js bdo.js continuebee.js fount.js julia.js joan.js pref.js`
 
 ### Contributing
 
 Each miniservice has its own contributing guide. 
-Should you want to make a contribution to a servie, you should check there.
+Should you want to make a contribution to a service, you should check there.
 
 If you'd like to add an allyabase client, you should submit a PR with a video of you testing all the methods of the client against the dev instance of allyabase.
 
@@ -122,6 +142,7 @@ This project would not be possible without the support and contributions of the 
 [sanora]: https://www.github.com/planet-nine-app/sanora-dot-club
 [juliachat]: https://www.github.com/planet-nine-app/JuliaChat
 [osf]: https://opensourceforce.net
+[minecraft]: https://minecraft.fandom.com/wiki/Tutorials/Setting_up_a_server
 
 [ht1]: ## "In the hierarchy of non-centralized systems it goes decentralized (like blockchain), then federated (like the Fediverse), then interoperable (like cellular networks, or the world wide web). Interoperability was actually the norm in the years before the internet. You don't have to have different pens for different notebooks."
 [ht2]: ## "A bridge language. Like common in DnD."

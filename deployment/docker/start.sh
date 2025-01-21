@@ -57,6 +57,11 @@ module.exports = {
       name: 'dolores',
       script: '/usr/src/app/dolores/src/server/node/dolores.js',
       env: { LOCALHOST: 'true' }
+    },
+    {
+      name: 'minnie',
+      script: '/usr/src/app/minnie/src/server/node/minnie.js',
+      env: { LOCALHOST: 'true' }
     }
   ]
 }
