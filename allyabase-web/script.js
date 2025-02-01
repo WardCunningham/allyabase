@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Service repository URLs and descriptions
     const serviceUrls = {
         'addie': 'https://github.com/planet-nine-app/addie',
-        'artha': 'https://github.com/planet-nine-app/aretha',
+        'aretha': 'https://github.com/planet-nine-app/aretha',
         'bdo': 'https://github.com/planet-nine-app/bdo',
         'continuebee': 'https://github.com/planet-nine-app/continuebee',
         'dolores': 'https://github.com/planet-nine-app/dolores',
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize tooltips
     fetchRepoDescriptions();
 
-    // Handle gem and shape clicks
+    // Handle gem expansion
     shapesContainer.addEventListener('click', (e) => {
         if (!isExpanded) {
             // First click: expand the gem into shapes
@@ -116,15 +116,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Prevent navigation when clicking shapes in unexpanded state
     shapes.forEach(shape => {
         shape.addEventListener('click', (e) => {
-            if (isExpanded) {
-                e.stopPropagation(); // Prevent container click
-                // Navigate to service repo
-                const serviceName = shape.getAttribute('data-service');
-                if (serviceUrls[serviceName]) {
-                    window.location.href = serviceUrls[serviceName];
-                }
+            if (!isExpanded) {
+                e.preventDefault();
             }
         });
     });
