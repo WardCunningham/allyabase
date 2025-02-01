@@ -1,0 +1,590 @@
+@font-face {
+    font-family: 'Press Start 2P';
+    src: local('Press Start 2P'),
+         url('fonts/PressStart2P-Regular.woff2') format('woff2'),
+         url('fonts/PressStart2P-Regular.woff') format('woff');
+    font-display: swap;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: VT323, 'Courier New', monospace;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background: #000;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.1s ease-out;
+}
+
+.background-container::after {
+    display: none;
+}
+
+.main-content {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(0, -5vh);
+}
+
+.shapes-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    margin-left: 40vw;
+    margin-top: -40vh;
+    cursor: pointer;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(2deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+.shapes-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/MagicalGemstone.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.5))
+           drop-shadow(0 0 40px rgba(128, 0, 255, 0.5))
+           drop-shadow(0 0 60px rgba(255, 0, 128, 0.3));
+    transition: all 0.4s ease;
+    animation: pulse 2s ease-in-out infinite;
+    border-radius: 50%;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.5))
+               drop-shadow(0 0 40px rgba(128, 0, 255, 0.5))
+               drop-shadow(0 0 60px rgba(255, 0, 128, 0.3));
+    }
+    50% {
+        filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.7))
+               drop-shadow(0 0 60px rgba(128, 0, 255, 0.7))
+               drop-shadow(0 0 90px rgba(255, 0, 128, 0.5));
+    }
+}
+
+.shapes-container:hover::before {
+    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.8))
+           drop-shadow(0 0 60px rgba(128, 0, 255, 0.8))
+           drop-shadow(0 0 90px rgba(255, 0, 128, 0.6));
+    transform: scale(1.1);
+}
+
+.shapes-container.expanded {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    transform: none !important;
+}
+
+.shapes-container.expanded::before {
+    opacity: 0;
+    transform: scale(0) rotate(180deg);
+}
+
+.shape {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: scale(0.5) translate(0, 0);
+    text-decoration: none;
+    display: block;
+}
+
+.shapes-container.expanded .shape {
+    position: fixed;
+    opacity: 1;
+    width: 60px;
+    height: 60px;
+    transform: none;
+}
+
+/* Shape positions */
+.shapes-container.expanded .shape:nth-child(1) { top: 80px; left: 20vw; }
+.shapes-container.expanded .shape:nth-child(2) { top: 80px; left: 45vw; }
+.shapes-container.expanded .shape:nth-child(3) { top: 80px; left: 70vw; }
+.shapes-container.expanded .shape:nth-child(4) { top: 35vh; right: 20px; }
+.shapes-container.expanded .shape:nth-child(5) { top: 55vh; right: 20px; }
+.shapes-container.expanded .shape:nth-child(6) { top: 35vh; left: 20px; }
+.shapes-container.expanded .shape:nth-child(7) { top: 55vh; left: 20px; }
+.shapes-container.expanded .shape:nth-child(8) { bottom: 80px; left: 20vw; }
+.shapes-container.expanded .shape:nth-child(9) { bottom: 80px; left: 45vw; }
+.shapes-container.expanded .shape:nth-child(10) { bottom: 80px; left: 70vw; }
+
+/* Service name base styles */
+.service-name {
+    position: absolute;
+    font-size: 0.85em;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8),
+                 0 0 20px rgba(0, 0, 0, 0.5),
+                 2px 2px 2px rgba(0, 0, 0, 1);
+    opacity: 0;
+    transition: all 0.5s ease;
+    white-space: nowrap;
+    letter-spacing: 1px;
+    cursor: pointer;
+    pointer-events: all;
+    z-index: 10;
+}
+
+/* Service name expanded state */
+.shapes-container.expanded .service-name {
+    position: fixed;
+    opacity: 1;
+    font-size: 0.8em;
+    text-align: left;
+    transform: none;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 5px 15px;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* Service name positions and colors */
+.shapes-container.expanded .shape:nth-child(1) .service-name {
+    top: 80px; left: calc(20vw + 70px);
+    color: #FF0080;
+    text-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
+}
+
+.shapes-container.expanded .shape:nth-child(2) .service-name {
+    top: 80px; left: calc(45vw + 70px);
+    color: #00E5FF;
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+}
+
+.shapes-container.expanded .shape:nth-child(3) .service-name {
+    top: 80px; left: calc(70vw + 70px);
+    color: #FF9900;
+    text-shadow: 0 0 10px rgba(255, 153, 0, 0.5);
+}
+
+.shapes-container.expanded .shape:nth-child(4) .service-name {
+    top: 35vh; right: 90px;
+    color: #7C3AED;
+    text-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
+}
+
+.shapes-container.expanded .shape:nth-child(5) .service-name {
+    top: 55vh; right: 90px;
+    color: #10B981;
+    text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+.shapes-container.expanded .shape:nth-child(6) .service-name {
+    top: 35vh; left: 90px;
+    color: #FBBF24;
+    text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+}
+
+.shapes-container.expanded .shape:nth-child(7) .service-name {
+    top: 55vh; left: 90px;
+    color: #EC4899;
+    text-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
+}
+
+.shapes-container.expanded .shape:nth-child(8) .service-name {
+    bottom: 80px; left: calc(20vw + 70px);
+    color: #3B82F6;
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+.shapes-container.expanded .shape:nth-child(9) .service-name {
+    bottom: 80px; left: calc(45vw + 70px);
+    color: #84CC16;
+    text-shadow: 0 0 10px rgba(132, 204, 22, 0.5);
+}
+
+.shapes-container.expanded .shape:nth-child(10) .service-name {
+    bottom: 80px; left: calc(70vw + 70px);
+    color: #F43F5E;
+    text-shadow: 0 0 10px rgba(244, 63, 94, 0.5);
+}
+
+/* Hover effects for both shapes and service names */
+.shapes-container.expanded .shape:hover .service-name,
+.shapes-container.expanded .service-name:hover {
+    transform: scale(1.1);
+    background: rgba(0, 0, 0, 0.8);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Shape content styles */
+.shape-content {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2),
+                inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.shape:hover .shape-content {
+    transform: scale(1.2) translateZ(20px) rotateX(10deg);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3),
+                inset 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+/* Individual shape styles */
+.shape:nth-child(1) .shape-content {
+    background: linear-gradient(135deg, #FF0080 0%, #7928CA 100%);
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(255, 0, 128, 0.3),
+                inset 0 0 20px rgba(121, 40, 202, 0.5);
+}
+
+.shape:nth-child(2) .shape-content {
+    background: linear-gradient(135deg, #00E5FF 0%, #2563EB 100%);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    box-shadow: 0 5px 15px rgba(0, 229, 255, 0.3),
+                inset 0 0 20px rgba(37, 99, 235, 0.5);
+}
+
+.shape:nth-child(3) .shape-content {
+    background: linear-gradient(135deg, #FF9900 0%, #FF0080 100%);
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    box-shadow: 0 5px 15px rgba(255, 153, 0, 0.3),
+                inset 0 0 20px rgba(255, 0, 128, 0.5);
+}
+
+.shape:nth-child(4) .shape-content {
+    background: linear-gradient(135deg, #7C3AED 0%, #2563EB 100%);
+    border-radius: 20px;
+    transform: rotate(45deg);
+    box-shadow: 0 5px 15px rgba(124, 58, 237, 0.3),
+                inset 0 0 20px rgba(37, 99, 235, 0.5);
+}
+
+.shape:nth-child(5) .shape-content {
+    background: linear-gradient(135deg, #10B981 0%, #3B82F6 100%);
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3),
+                inset 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+.shape:nth-child(6) .shape-content {
+    background: linear-gradient(135deg, #FBBF24 0%, #D97706 100%);
+    clip-path: polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%);
+    box-shadow: 0 5px 15px rgba(251, 191, 36, 0.3),
+                inset 0 0 20px rgba(217, 119, 6, 0.5);
+}
+
+.shape:nth-child(7) .shape-content {
+    background: linear-gradient(135deg, #EC4899 0%, #8B5CF6 100%);
+    clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
+    box-shadow: 0 5px 15px rgba(236, 72, 153, 0.3),
+                inset 0 0 20px rgba(139, 92, 246, 0.5);
+}
+
+.shape:nth-child(8) .shape-content {
+    background: linear-gradient(135deg, #3B82F6 0%, #2DD4BF 100%);
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3),
+                inset 0 0 20px rgba(45, 212, 191, 0.5);
+}
+
+.shape:nth-child(9) .shape-content {
+    background: linear-gradient(135deg, #84CC16 0%, #10B981 100%);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    box-shadow: 0 5px 15px rgba(132, 204, 22, 0.3),
+                inset 0 0 20px rgba(16, 185, 129, 0.5);
+}
+
+.shape:nth-child(10) .shape-content {
+    background: linear-gradient(135deg, #F43F5E 0%, #7928CA 100%);
+    clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+    box-shadow: 0 5px 15px rgba(244, 63, 94, 0.3),
+                inset 0 0 20px rgba(121, 40, 202, 0.5);
+}
+
+/* Tooltip styles */
+.tooltip {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 0.75em;
+    max-width: 250px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    line-height: 1.4;
+    white-space: normal;
+    pointer-events: none;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.5px;
+}
+
+.shape:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Position tooltips based on shape position - adjusted to prevent overlap */
+.shapes-container.expanded .shape:nth-child(-n+3) .tooltip {
+    bottom: auto;
+    top: calc(100% + 25px);
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 200px;
+}
+
+/* Upper right shape (4) - tooltip above */
+.shapes-container.expanded .shape:nth-child(4) .tooltip {
+    bottom: calc(100% + 25px);
+    right: 0;
+    left: -100px;
+    top: auto;
+    transform: none;
+}
+
+/* Lower right shape (5) - tooltip below */
+.shapes-container.expanded .shape:nth-child(5) .tooltip {
+    top: calc(100% + 25px);
+    right: 0;
+    left: -100px;
+    transform: none;
+}
+
+/* Upper left shape (6) - tooltip above */
+.shapes-container.expanded .shape:nth-child(6) .tooltip {
+    bottom: calc(100% + 25px);
+    right: -100px;
+    left: 0;
+    top: auto;
+    transform: none;
+}
+
+/* Lower left shape (7) - tooltip below */
+.shapes-container.expanded .shape:nth-child(7) .tooltip {
+    top: calc(100% + 25px);
+    right: -100px;
+    left: 0;
+    transform: none;
+}
+
+.shapes-container.expanded .shape:nth-child(n+8) .tooltip {
+    top: auto;
+    bottom: calc(100% + 25px);
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 200px;
+}
+
+/* Add transitions for tooltip positions */
+.shapes-container.expanded .tooltip {
+    transition: all 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Ensure tooltips stay within viewport */
+@media (max-height: 800px) {
+    .shapes-container.expanded .shape:nth-child(-n+3) .tooltip {
+        top: calc(100% + 20px);
+    }
+    
+    .shapes-container.expanded .shape:nth-child(n+8) .tooltip {
+        bottom: calc(100% + 20px);
+    }
+    
+    /* Adjust side tooltips for smaller screens */
+    .shapes-container.expanded .shape:nth-child(4) .tooltip,
+    .shapes-container.expanded .shape:nth-child(6) .tooltip {
+        bottom: calc(100% + 20px);
+    }
+    
+    .shapes-container.expanded .shape:nth-child(5) .tooltip,
+    .shapes-container.expanded .shape:nth-child(7) .tooltip {
+        top: calc(100% + 20px);
+    }
+}
+
+/* Mobile Responsive Styles */
+@media screen and (max-width: 768px) {
+    /* Adjust main gem position for mobile */
+    .shapes-container {
+        margin-left: 15vw;
+        margin-top: -20vh;
+        width: 120px;
+        height: 120px;
+    }
+
+    /* Adjust expanded shape positions for mobile */
+    .shapes-container.expanded .shape {
+        width: 45px;
+        height: 45px;
+    }
+
+    /* Adjust top row shapes */
+    .shapes-container.expanded .shape:nth-child(1) { top: 40px; left: 10vw; }
+    .shapes-container.expanded .shape:nth-child(2) { top: 40px; left: 42vw; }
+    .shapes-container.expanded .shape:nth-child(3) { top: 40px; left: 74vw; }
+
+    /* Adjust side shapes */
+    .shapes-container.expanded .shape:nth-child(4) { top: 30vh; right: 10px; }
+    .shapes-container.expanded .shape:nth-child(5) { top: 50vh; right: 10px; }
+    .shapes-container.expanded .shape:nth-child(6) { top: 30vh; left: 10px; }
+    .shapes-container.expanded .shape:nth-child(7) { top: 50vh; left: 10px; }
+
+    /* Adjust bottom row shapes */
+    .shapes-container.expanded .shape:nth-child(8) { bottom: 40px; left: 10vw; }
+    .shapes-container.expanded .shape:nth-child(9) { bottom: 40px; left: 42vw; }
+    .shapes-container.expanded .shape:nth-child(10) { bottom: 40px; left: 74vw; }
+
+    /* Adjust service names for mobile */
+    .shapes-container.expanded .service-name {
+        font-size: 0.6em;
+        padding: 4px 10px;
+        white-space: nowrap;
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* Adjust service name positions */
+    .shapes-container.expanded .shape:nth-child(1) .service-name { top: 40px; left: calc(10vw + 55px); }
+    .shapes-container.expanded .shape:nth-child(2) .service-name { top: 40px; left: calc(42vw + 55px); }
+    .shapes-container.expanded .shape:nth-child(3) .service-name { top: 40px; left: calc(74vw + 55px); }
+    
+    .shapes-container.expanded .shape:nth-child(4) .service-name { top: 30vh; right: 65px; }
+    .shapes-container.expanded .shape:nth-child(5) .service-name { top: 50vh; right: 65px; }
+    .shapes-container.expanded .shape:nth-child(6) .service-name { top: 30vh; left: 65px; }
+    .shapes-container.expanded .shape:nth-child(7) .service-name { top: 50vh; left: 65px; }
+    
+    .shapes-container.expanded .shape:nth-child(8) .service-name { bottom: 40px; left: calc(10vw + 55px); }
+    .shapes-container.expanded .shape:nth-child(9) .service-name { bottom: 40px; left: calc(42vw + 55px); }
+    .shapes-container.expanded .shape:nth-child(10) .service-name { bottom: 40px; left: calc(74vw + 55px); }
+
+    /* Adjust tooltips for mobile */
+    .tooltip {
+        font-size: 0.6em;
+        padding: 8px 12px;
+        max-width: 160px;
+    }
+
+    /* Adjust tooltip positions for mobile */
+    .shapes-container.expanded .shape:nth-child(-n+3) .tooltip {
+        top: calc(100% + 15px);
+    }
+
+    .shapes-container.expanded .shape:nth-child(4) .tooltip {
+        bottom: calc(100% + 15px);
+        left: -80px;
+    }
+
+    .shapes-container.expanded .shape:nth-child(5) .tooltip {
+        top: calc(100% + 15px);
+        left: -80px;
+    }
+
+    .shapes-container.expanded .shape:nth-child(6) .tooltip {
+        bottom: calc(100% + 15px);
+        right: -80px;
+    }
+
+    .shapes-container.expanded .shape:nth-child(7) .tooltip {
+        top: calc(100% + 15px);
+        right: -80px;
+    }
+
+    .shapes-container.expanded .shape:nth-child(n+8) .tooltip {
+        bottom: calc(100% + 15px);
+    }
+}
+
+/* Additional adjustments for very small screens */
+@media screen and (max-width: 380px) {
+    .shapes-container.expanded .shape {
+        width: 35px;
+        height: 35px;
+    }
+
+    .shapes-container.expanded .service-name {
+        font-size: 0.5em;
+        padding: 3px 8px;
+    }
+
+    /* Adjust spacing for very small screens */
+    .shapes-container.expanded .shape:nth-child(1) { left: 5vw; }
+    .shapes-container.expanded .shape:nth-child(2) { left: 40vw; }
+    .shapes-container.expanded .shape:nth-child(3) { left: 75vw; }
+    
+    .shapes-container.expanded .shape:nth-child(8) { left: 5vw; }
+    .shapes-container.expanded .shape:nth-child(9) { left: 40vw; }
+    .shapes-container.expanded .shape:nth-child(10) { left: 75vw; }
+
+    /* Adjust service name positions for very small screens */
+    .shapes-container.expanded .shape:nth-child(1) .service-name { left: calc(5vw + 45px); }
+    .shapes-container.expanded .shape:nth-child(2) .service-name { left: calc(40vw + 45px); }
+    .shapes-container.expanded .shape:nth-child(3) .service-name { left: calc(75vw + 45px); }
+    
+    .shapes-container.expanded .shape:nth-child(8) .service-name { left: calc(5vw + 45px); }
+    .shapes-container.expanded .shape:nth-child(9) .service-name { left: calc(40vw + 45px); }
+    .shapes-container.expanded .shape:nth-child(10) .service-name { left: calc(75vw + 45px); }
+
+    /* Adjust tooltip max-width for very small screens */
+    .tooltip {
+        max-width: 140px;
+    }
+} 
