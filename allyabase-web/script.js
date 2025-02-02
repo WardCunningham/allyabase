@@ -113,6 +113,9 @@ document.addEventListener('DOMContentLoaded', () => {
             isExpanded = true;
             // Disable parallax when expanded
             document.removeEventListener('mousemove', handleParallax);
+        } else {
+            shapesContainer.classList.remove('expanded');
+            isExpanded = false;
         }
     });
 

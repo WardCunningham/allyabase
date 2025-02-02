@@ -39,6 +39,21 @@ body {
     display: none;
 }
 
+.centered-text {
+    position: absolute;
+    top: 55vh;
+    left: 50vh;
+    color: white;
+    font-size: 2em; /* Adjust size as needed */
+    z-index: 1; /* Ensure it appears above other content */
+}
+
+.text-container {
+    position: relative; 
+    width: 100%;
+    height: 100%;
+}
+
 .main-content {
     width: 100%;
     height: 100vh;
