@@ -12,7 +12,7 @@ RUN git clone https://www.github.com/planet-nine-app/dolores.git dolores
 RUN git clone https://www.github.com/planet-nine-app/fount.git fount
 RUN git clone https://www.github.com/planet-nine-app/joan.git joan
 RUN git clone https://www.github.com/planet-nine-app/julia.git julia
-RUN git clone https://www.github.com/planet-nine-app/minnie.git julia
+RUN git clone https://www.github.com/planet-nine-app/minnie.git minnie
 RUN git clone https://www.github.com/planet-nine-app/pref.git pref
 RUN git clone https://www.github.com/planet-nine-app/sanora.git sanora
 
