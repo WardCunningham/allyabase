@@ -60,6 +60,8 @@ Those functions will be discussed in brief here, with links to their API documen
 
 [Julia][julia]: Peer to peer associations for messaging, and coming soon for intra client assciating.
 
+[Minnie][minnie]: A magic box for emails.
+
 [Pref][pref]: Stored preferences (or any key/value pair really). Also allows for global preferences across clients.
 
 [Sanora][sanora]: Super lightweight product hosting like gumroad or big cartel
