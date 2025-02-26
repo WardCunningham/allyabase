@@ -67,4 +67,35 @@ The only Valhalla for them is to perhaps be recycled into future machines to try
 
 ![An intersection with no lights, and no one directing traffic](./intersection.gif)
 
+Didn't drop in to this tech blog for a historical look at philosophical systems? 
+Fair enough.
+I mean it seems kind of relevant in this age of people claiming machines will soon surpass us lowly meat bags, but if that's enough let's just see where this goes.
 
+There's a totally reasonable psychological need to believe that things _have_ to be the way they are or society will devolve into utter chaos.
+But I feel this undermines the human spirit. 
+We've shown over and over again that if we need to get from a to b, we'll figure out how to get there--oceans, mountains, deserts, and intersections without blinking lights guiding us be damned.
+
+_We_ are smart, creative, and recalcitrant.
+The tools, and now machines we create, are not. 
+At least not yet.[^1]
+
+But just like the deities we anthropomorphize to justify the laws attributed to them, we grant to the machines the same deontology we suffer ourselves.
+We write our specs with MUSTs and SHOULDs and REQUIREDs, and sure there's a reasonable need to believe things _have_ to be that way in order to work, but do they?
+
+### What is my purpose?
+
+The deontologists whose thinking dominates the Abrahamic religions that are known most to the western world have a lot to owe to Plato, and his absolutist framing of metaphysics. 
+I won't debate the merits of his philosophy here, but I will acknowledge I'm not a fan.
+
+The Ancient Greek counterpoint to Plato came from his student Aristotle. 
+Interestingly, Aristotle's work was more or less contemporaneous with the religions of the Eastern world who also deviate from deontology like Hinduism, Buddhism, Confucianism, and Daoism. 
+This other way of being is called teleological, from the Greek _telos_ meaning "goal" or "purpose." 
+
+It is best summed up for our purposes by this gif:
+
+![Rick from Rick and Morty tells a small robot that its purpose is to pass butter, and the robot is then depressed](./butter.gif)
+
+
+
+
+[^1]: AI is real hot right now. But rather than quibble over definitions of intelligence, let's just say that the LLMs everyone's paying for right now aren't going to skynet us off the map just yet. 
