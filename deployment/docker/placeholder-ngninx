@@ -2,15 +2,20 @@
 
 server {
     listen 80;
-    server_name <subdomain>.continuebee.<your domain>.com <subdomain>.julia.<your domain>.com 
-                 <subdomain>.pref.<your domain>.com <subdomain>.bdo.<your domain>.com <subdomain>.joan.<your domain>.com 
-                 <subdomain>.addie.<your domain>.com <subdomain>.pref.<your domain>.com;
+    server_name allyabase.com dev.continuebee.allyabase.com dev.julia.allyabase.com 
+                 dev.pref.allyabase.com dev.bdo.allyabase.com dev.joan.allyabase.com 
+                 dev.addie.allyabase.com dev.fount.allyabase.com dev.sanora.allyabase.com
+                 dev.aretha.allyabase.com dev.dolores.allyabase.com;
     return 301 https://$host$request_uri;
 }
 
 server {
     listen 443;
     server_name allyabase.com;
+
+#    ssl_certificate /etc/letsencrypt/live/allyabase.com/fullchain.pem;
+#    ssl_certificate_key /etc/letsencrypt/live/allyabase.com/privkey.pem;
+
     location / {
         proxy_pass http://localhost:2998;
         proxy_set_header Host $host;
@@ -20,7 +25,11 @@ server {
 
 server {
     listen 443;
-    server_name <subdomain>.continuebee.<your domain>.com;
+    server_name dev.continuebee.allyabase.com;
+
+#    ssl_certificate /etc/letsencrypt/live/dev.continuebee.allyabase.com/fullchain.pem;
+#    ssl_certificate_key /etc/letsencrypt/live/dev.continuebee.allyabase.com/privkey.pem;
+
     location / {
         proxy_pass http://localhost:2999;
         proxy_set_header Host $host;
@@ -30,7 +39,11 @@ server {
 
 server {
     listen 443;
-    server_name <subdomain>.julia.<your domain>.com;
+    server_name dev.julia.allyabase.com;
+
+#    ssl_certificate /etc/letsencrypt/live/dev.julia.allyabase.com/fullchain.pem;
+#    ssl_certificate_key /etc/letsencrypt/live/dev.julia.allyabase.com/privkey.pem;
+
     location / {
         proxy_pass http://localhost:3000;
         proxy_set_header Host $host;
@@ -40,7 +53,11 @@ server {
 
 server {
     listen 443;
-    server_name <subdomain>.pref.<your domain>.com;
+    server_name dev.pref.allyabase.com;
+
+#    ssl_certificate /etc/letsencrypt/live/dev.pref.allyabase.com/fullchain.pem;
+#    ssl_certificate_key /etc/letsencrypt/live/dev.pref.allyabase.com/privkey.pem;
+
     location / {
         proxy_pass http://localhost:3002;
         proxy_set_header Host $host;
@@ -49,7 +66,11 @@ server {
 }
 server {
     listen 443;
-    server_name <subdomain>.bdo.<your domain>.com;
+    server_name dev.bdo.allyabase.com;
+
+#    ssl_certificate /etc/letsencrypt/live/dev.bdo.allyabase.com/fullchain.pem;
+#    ssl_certificate_key /etc/letsencrypt/live/dev.bdo.allyabase.com/privkey.pem;
+
     location / {
         proxy_pass http://localhost:3003;
         proxy_set_header Host $host;
@@ -58,7 +79,11 @@ server {
 }
 server {
     listen 443;
-    server_name <subdomain>.joan.<your domain>.com;
+    server_name dev.joan.allyabase.com;
+
+#    ssl_certificate /etc/letsencrypt/live/dev.joan.allyabase.com/fullchain.pem;
+#    ssl_certificate_key /etc/letsencrypt/live/dev.joan.allyabase.com/privkey.pem;
+
     location / {
         proxy_pass http://localhost:3004;
         proxy_set_header Host $host;
@@ -68,7 +93,11 @@ server {
 
 server {
     listen 443;
-    server_name <subdomain>.addie.<your domain>.com;
+    server_name dev.addie.allyabase.com;
+
+#    ssl_certificate /etc/letsencrypt/live/dev.addie.allyabase.com/fullchain.pem;
+#    ssl_certificate_key /etc/letsencrypt/live/dev.addie.allyabase.com/privkey.pem;
+
     location / {
         proxy_pass http://localhost:3005;
         proxy_set_header Host $host;
@@ -79,9 +108,71 @@ server {
 
 server {
     listen 443;
-    server_name <your domain>.com;
+    server_name dev.fount.allyabase.com;
+
+#    ssl_certificate /etc/letsencrypt/live/dev.fount.allyabase.com/fullchain.pem;
+#    ssl_certificate_key /etc/letsencrypt/live/dev.fount.allyabase.com/privkey.pem;
+
     location / {
         proxy_pass http://localhost:3006;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
+
+server {
+    listen 443;
+    server_name dev.sanora.allyabase.com;
+
+#    ssl_certificate /etc/letsencrypt/live/dev.sanora.allyabase.com/fullchain.pem;
+#    ssl_certificate_key /etc/letsencrypt/live/dev.sanora.allyabase.com/privkey.pem;
+
+    location / {
+        proxy_pass http://localhost:7243;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
+
+server {
+    client_max_body_size 100M;
+
+    listen 443;
+    server_name dev.dolores.allyabase.com;
+
+#    ssl_certificate /etc/letsencrypt/live/dev.dolores.allyabase.com/fullchain.pem;
+#    ssl_certificate_key /etc/letsencrypt/live/dev.dolores.allyabase.com/privkey.pem;
+
+    location / {
+        proxy_pass http://localhost:3007;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
+
+server {
+    listen 443;
+    server_name dev.aretha.allyabase.com;
+
+#    ssl_certificate /etc/letsencrypt/live/dev.aretha.allyabase.com/fullchain.pem;
+#    ssl_certificate_key /etc/letsencrypt/live/dev.aretha.allyabase.com/privkey.pem;
+
+    location / {
+        proxy_pass http://localhost:7277;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
+
+server {
+    listen 443;
+    server_name dev.savage.allyabase.com;
+
+#    ssl_certificate /etc/letsencrypt/live/dev.savage.allyabase.com/fullchain.pem;
+#    ssl_certificate_key /etc/letsencrypt/live/dev.savage.allyabase.com/privkey.pem;
+
+    location / {
+        proxy_pass http://localhost:5117;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
     }
