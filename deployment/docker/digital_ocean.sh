@@ -18,4 +18,8 @@ git clone git@github.com:planet-nine-app/<your domain>git
 apt install nginx
 sudo apt install certbot python3-certbot-nginx
 
+cp placeholder-nginx /etc/nginx/sites-available/default
+
+echo "run certbot"
+
 # sudo certbot --nginx -d <subdomain.continuebee.<your domain>com -d <subdomain.julia.<your domain>com -d <subdomain.pref.<your domain>com -d <subdomain.bdo.<your domain>com -d <subdomain.joan.<your domain>com -d <subdomain.addie.<your domain>com -d <subdomain.fount.<your domain>com
