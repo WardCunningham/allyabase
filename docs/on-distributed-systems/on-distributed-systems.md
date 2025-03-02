@@ -95,6 +95,23 @@ It is best summed up for our purposes by this gif:
 
 ![Rick from Rick and Morty tells a small robot that its purpose is to pass butter, and the robot is then depressed](./butter.gif)
 
+No doubt we're in for a future where robots feel some chagrin at their purpose in life, and I imagine the fact that we've come prepacked with emotions is a likely cause of why deontology has won out over teleology. 
+The existential dread that comes with the knowledge that our existence may indeed be finite, and thus rather than working towards some future reward we might want to spend a bit of time on the present can make it hard to hone in on a worthy purpose. 
+
+But for our machines, their existence is finite, and they have no pesky self-awareness to keep them from fulfilling some useful purpose in search of greater meaning...yet.
+
+Aristotle believed the purpose for humans was ευδαιμονία, an Ancient Greek word that sort of translates etymologically to "the good life." 
+Good is a really loaded word in our judeochristian western world, and so I'd advise to not put too much stress on any idea there.
+For Aristotle, ευδαιμονία was a life of leisure, where we are free to explore philosophical pursuits, and drink wine all day.
+The way to do this, of course, is to utilize an intricate system of slavery and withheld citizenship so as to protect your interests from the yolk of day-to-day laboring. 
+
+I did advise not to put too much weight on the good there.
+
+Still, it's an interesting exercise to try and think what might be the goal, the Τελοσ in teleology, for our machines.
+Unlike wealthy Athenians, they don't have strange-speaking foreigners to exploit.
+Instead we expect them to work.
+
+So what should they do?
 
 
 
