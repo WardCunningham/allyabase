@@ -13,7 +13,7 @@ Lest the mixing of philosophy and computer science sound boring, let me assure y
 
 ## Definitions
 
-Any reasonable discussion about wha things are needs to start with what things you're talking about in the first place. 
+Any reasonable discussion about what things are needs to start with what things you're talking about in the first place. 
 For this post the three most important things would be computers, what we mean by distributed, and systems. 
 Let's start with the last, and work our way backwards.
 
@@ -113,6 +113,47 @@ Instead we expect them to work.
 
 So what should they do?
 
+## Distribute what?
 
+There are way too many software things to discuss in a blog post, so let's bring it back to distributed systems. 
+Very simply a system is distributed as soon as it requires two machines that are networked in some way, we'll ignore for now the stack of turtles in definitions this creates, and just leave it to our own knowledge of these terms to fill in the gaps. 
+
+The first question might be why you need two or more machines in the first place?
+I'll give three different reasons:
+
+* Client/Server where the server hosts resources for various clients to retrieve
+* Mesh networks where all the participants can communicate with each other, but aren't all the same
+* Decentralized networks, which are like mesh networks, but all the devices are roughly the same
+
+In all of these systems, one of the main concerns for people is scaling. 
+Computers have constraints on how many requests on their resources they can handle.
+Once a system exceeds that limit, the machine serving those requests will stop working. 
+
+Since the nineties, pretty much all distributed systems have used the internet for message passing, and thus if you care about scaling your system on the internet, the possible number of people you need to scale to is everyone with internet access, and that's a big number.
+To handle this level of scaling, us tech folk build all sorts of infrastructure that sounds like the [turbo encabulator][encabulator].
+
+Two things to talk about here, so let's start with whether you need to scale to everyone on the planet or not. 
+
+### _EVERYONE_
+
+I have this good friend who, for whatever reason, didn't watch movies growing up. 
+Being a huge nerd, movies are of course part of the cultural millieu that I have enjoyed, so him not getting my obvious references to the original Star Wars trilogy were surprising. 
+This lack of cultural overlap was reinforced when I later made a reference in a doc to The Matrix, and it was suggested to me that perhaps that reference was a bit dated. 
+
+![a gif of butthead from beavis and butthead saying, "you old"](./you-old.gif)
+
+The Matrix grossed around $500 million worldwide, and was certainly successful in its time, but maybe not the type of series that is as intergenerational as Star Wars.
+But even Star Wars has less than 50% of adults in the US saying they've seen it. 
+I don't know what those other people are doing, but I sure hope they're staying busy. 
+
+Movies offer an interesting analog to the notion of a distributed system's "user" since they have a low barrier of entry, low investment of time, and high cultural relevance. 
+If 50% of adults in the US can't be bothered to put aside a couple of hours to see what all the fuss is about Luke and Leia, chances are your system's not going to need to scale all that large right off the bat. 
+
+Meta, a company whose self-reported user numbers I trust about as much  
+
+
+
+
+[encabulator]: https://youtu.be/Ac7G7xOG2Ag?si=MWe3-V6AiyeUg2hq
 
 [^1]: AI is real hot right now. But rather than quibble over definitions of intelligence, let's just say that the LLMs everyone's paying for right now aren't going to skynet us off the map just yet. 
