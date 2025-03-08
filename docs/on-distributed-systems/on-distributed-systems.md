@@ -149,11 +149,83 @@ I don't know what those other people are doing, but I sure hope they're staying 
 Movies offer an interesting analog to the notion of a distributed system's "user" since they have a low barrier of entry, low investment of time, and high cultural relevance. 
 If 50% of adults in the US can't be bothered to put aside a couple of hours to see what all the fuss is about Luke and Leia, chances are your system's not going to need to scale all that large right off the bat. 
 
-Meta, a company whose self-reported user numbers I trust about as much  
+Meta, a company whose self-reported user numbers I trust about as much as a scorpion on a boat, claims to have somewhere close to half of all humanity using their software monthly. 
+The cheapest Digital Ocean droplet can handle around half a million requests an hour so long as those requests are simple and efficient. 
+So let's do a little math:
+
+(4 billion MAU * 100 requests/mo on average) / (30 days * 24 hours * 500k requests/hr) = 1,111 droplets
+
+Those are the cheap droplets so they're $6/mo each, which means Meta can scale to their opportunity for a cool $6666/mo. 
+
+Now I'm sure some meta 10x'er will read this and have a conniption fit at the suggestion that their scale could be handled by a handful of shared instances on some fly-by-night operation like DO. 
+But that's not my point.
+Meta's got to deal with their CEO's lousy code and ideas so I'm sure they're nowhere near efficient enough to scale on the cheap like this. 
+
+My point is that the days of needing a gazillion dollars to scale are gone. 
+For one, most of the data we're shipping around hasn't grown all that much: text is text, pngs are pngs, and they haven't much changed in the past sixteen years. 
+For two, the server platforms that were new at the beginning of the cloud have had nearly two decades to optimize and refine themselves. 
+And of course the machines themselves are significantly more powerful.
+
+But of course the gigantocorps, and in turn the less gigantic concerns, haven't really leveraged this improvement in the situation to the benefit of users or their bottom lines.
+Instead they've used the extra resources to cram a whole bunch of extra stuff that doesn't really help you get any more cat pictures on your screen, but does help them spy on you to try and sell you crap. 
+
+I've spent a lot of time trying to convince people not to do this. 
+It doesn't work.
+So instead I made [allyabase][allyabase] in the hopes that somewhere out there there were people who didn't want to track your every move.
+
+### Not everyone?
+
+It turns out that a couple of things happen when you no longer care about who or what the people using your software are. 
+To understand, we're going to have to dive into how the ol' internet works a bit, but I assure you I'll try my best to be brief.
+
+I was like 28 years old when it dawned on me that the internet was a system of files that lived on machines around the world I could connect to.
+I don't really know what I thought it was before that...probably magic, but it is just files, and servers, that exist on real machines connected to each other by wires and radio waves. 
+
+The system that connects them is called DNS (Domain Name System).
+This is what maps domain names like wikipedia.org to the location of the machine running at that location. 
+Until surpisingly recently this was done via a big ol' text file that would just write something like wikipedia.org = 123.23.44.101 or whatever. 
+
+So you start building thisisawesome.com, and since it's awesome, people start signing up. 
+You start growing, and after a bit of time you've got millions of users from all over the Earth showing up at thisisawesome.com demaning that their experience be awesome as promised.
+
+Now that poor machine you've got listening at the ip address that maps to that domain is starting to struggle. 
+So what do you do?
+
+Well you could buy thisisawesometoo.com for $12/yr and setup a second machine, but marketing says nonono that'd mean changing too much collateral. 
+So instead you buy another machine or two, and set them up behind a load balancer, which is a machine that listens for requests, and forwards them on to other machines to complete. 
+And that looks like this:
+
+|![a picture of clients connecting to load balancers which forward requests to machines](./load-balancer.png)|
+|:--:|
+|*Some day the artists will get their hands on these designs. Until then, know we suffer together*|
+
+A bit later you realize that you're getting big in Europe, and to handle the growth you need to go multi-region. 
+Now your load balancer is dispatching requests to machines in different data centers around the world when all of a sudden, a user in Frankfurt requests a reource housed in Oregon. 
+
+Now you've got a bit of a connundrum. 
+Do you duplicate the resource across the pond? 
+How do you authenticate the request? 
+The speed of light's fast, but eventually roundtrips from Frankfurt to Oregon are going to add up.[^2] 
+
+I'd like to tell you that answering these questions are interesting, but they're really not. 
+The solution to worldwide scaling in centralized distributed systems is money. 
+And when you're spending money to make money, you're going to want to maximize the money you're making. 
+
+And at global scale, that tends to bend organizations towards some less-than-beneficial development.
+
+But if your goal _isn't_ to extract the maximum value from every user who logs into your system, there's less of a reason to spend that money to scale. 
+You can focus on your own community, and let other focus on theirs. 
+And if you really want to scale your own thing, you can take this approach and scale much more efficiently, because you don't have a central system that your users need to get back to.
+
+### The ontology of the legislature
+
+
 
 
 
 
 [encabulator]: https://youtu.be/Ac7G7xOG2Ag?si=MWe3-V6AiyeUg2hq
+[allyabase]: https://github.com/planet-nine-app/allyabase
 
 [^1]: AI is real hot right now. But rather than quibble over definitions of intelligence, let's just say that the LLMs everyone's paying for right now aren't going to skynet us off the map just yet. 
+[^2]: The internet doesn't quite move at the speed of light. Most sources say it moves at a significant fraction of the speed of light, but exactly what that fraction is I'm not sure. It could very well be what's slowing down the internet for you while you're waiting for the bus. 
