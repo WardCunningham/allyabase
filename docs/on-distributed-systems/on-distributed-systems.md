@@ -219,6 +219,18 @@ And if you really want to scale your own thing, you can take this approach and s
 
 ### The ontology of the legislature
 
+But then you've got a new problem, and that problem is what I call the Legislature Problem. 
+A legislature is a group of humans who are assembled with the purpose of making laws. 
+So you know what legislatures do?
+
+They make laws. 
+
+Do we need those laws? 
+Doesn't matter--the legislature's gonna make them anyways. 
+Human things being human, maybe eventually there are enough laws, and the legislature to justify its existence turns into some big slog of in-fighting that stifles progress and spawns groups looking to undo the legislature. 
+I don't know, just a thought.
+
+Machines though don't reach any such point, they just keep churning out the laws.
 
 
 
