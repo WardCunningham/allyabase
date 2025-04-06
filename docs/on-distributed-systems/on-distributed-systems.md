@@ -231,6 +231,8 @@ Human things being human, maybe eventually there are enough laws, and the legisl
 I don't know, just a thought.
 
 Machines though don't reach any such point, they just keep churning out the laws.
+Well, that's if you make them churn out laws of course.
+
 
 
 
