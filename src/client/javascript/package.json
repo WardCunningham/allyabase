@@ -18,12 +18,12 @@
   },
   "homepage": "https://github.com/planet-nine-app/allyabase#readme",
   "dependencies": {
-    "addie-js": "0.0.2",
-    "bdo-js": "0.0.4",
-    "continuebee-js": "0.0.2",
-    "fount-js": "0.0.3",
-    "joan-js": "0.0.2",
-    "julia-js": "0.0.2",
-    "pn-pref-js": "0.0.2"
+    "addie-js": "latest",
+    "bdo-js": "latest",
+    "continuebee-js": "latest",
+    "fount-js": "latest",
+    "joan-js": "latest",
+    "julia-js": "latest",
+    "pn-pref-js": "latest"
   }
 }
