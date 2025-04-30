@@ -29,6 +29,7 @@ EXPOSE 7243
 EXPOSE 7277
 
 RUN npm install -g pm2
+RUN npm install -g wiki
 
 WORKDIR /usr/src/app/julia/src/server/node
 RUN npm install
@@ -72,5 +73,7 @@ ENV PM2_SAVE_INTERVAL=30000
 ENV PM2_LOG_DATE_FORMAT="YYYY-MM-DD HH:mm:ss.SSS"
 
 CMD ["./start.sh"]
+
+RUN nohup wiki --security_type=sessionless --id /root/.wiki/status/owner.json --security=./security --cookieSecret=youshouldprobablyputadifferentsecrethere --session_duration=10 --port=4444 --private_key=<put your private key here> --pub_key=<put your pub key here> &
 
 
