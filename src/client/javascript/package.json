@@ -1,14 +1,19 @@
 {
   "name": "allyabase-js",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "JavaScript client for Allyabase",
   "main": "allyabase.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "rollup": "npx rollup --format=cjs --file=allyabase.cjs -- allyabase.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/planet-nine-app/allyabase.git"
+  },
+  "exports": {
+    "import": "./allyabase.js",
+    "require": "./allyabase.cjs"
   },
   "author": "planetnineisaspaceship",
   "type": "module",
@@ -20,10 +25,14 @@
   "dependencies": {
     "addie-js": "latest",
     "bdo-js": "latest",
+    "dolores-js": "latest",
     "continuebee-js": "latest",
     "fount-js": "latest",
     "joan-js": "latest",
     "julia-js": "latest",
     "pn-pref-js": "latest"
+  },
+  "devDependencies": {
+    "rollup": "^4.40.0"
   }
 }
