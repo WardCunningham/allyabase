@@ -1,12 +1,66 @@
-# Federated Wiki - Forward Transfer Token
+# Federated Wiki - allyabase plugin
 
-A forward transfer token is a token that propogates forward in time. Traditional crypto tokens are minted at a finite point in time, and then traded from there. Their scarcity is their defining feature. 
+allyabase is a Backend as a Service (BaaS) similar to Firebase and Supabase except it is open, and interoperable with other systems that utilize the [Sessionless] protocol. 
+allyabase has many features, but the few that are exposed at this time in wiki are enable the signing of smart contracts, and the subsequent creation and/or transfer of nineum tokens upon completed parameters from the contracts. 
+To facilitate this, the plugin exposes the following routes to the client:
 
-A forward transfer token on the other hand is meant for propogating something of significance to a community within and/or without the community. Tokens may or may not be finite, but their minting doesn't happen all at once, but rather as posessors of the token, or users of the system pass along new tokens to folks they deem worthy. 
+<details>
+ <summary><code>GET</code> <code><b>/plugin/allyabase/user/:pubKey</b></code> <code>Gets an existing user by public key</code></summary>
 
-What all of that means for a community is outside of the scope of this plugin. This plugin specifies a mechanism for the creation and permissioning of forward transferring tokens. 
+##### Parameters
+
+> | name         |  required     | data type               | description                                                           |
+> |--------------|-----------|-------------------------|-----------------------------------------------------------------------|
+> | pubKey       |  true     | string (hex)            | the publicKey of the user's keypair  |
+
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`                | `USER`   |
+> | `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+
+<details>
+ <summary><code>GET</code> <code><b>/plugin/allyabase/bdo</b></code> <code>Gets the user's BDO</code></summary>
+
+##### Parameters
+
+> | name         |  required     | data type               | description                                                           |
+> |--------------|-----------|-------------------------|-----------------------------------------------------------------------|
+> | pubKey       |  true     | string (hex)            | the publicKey of the user's keypair  |
+
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`                | `USER`   |
+> | `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+
+
+<details>
+ <summary><code>PUT</code> <code><b>/plugin/allyabase/bdo</b></code> <code>Puts a new bdo or updates the bdo for the user</code></summary>
+
+##### Parameters
+
+> | name         |  required     | data type               | description                                                           |
+> |--------------|-----------|-------------------------|-----------------------------------------------------------------------|
+> | pubKey       |  true     | string (hex)            | the publicKey of the user's keypair  |
+> | bdo          |  true     | object                  | the signature from sessionless for the message  |
+
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`                | `USER`   |
+> | `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+
 
 ## License
 
 MIT
+
+[Sessionless]: https://github.com/planet-nine-app/sessionless
 
