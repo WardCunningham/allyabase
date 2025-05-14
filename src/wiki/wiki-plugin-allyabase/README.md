@@ -21,6 +21,8 @@ To facilitate this, the plugin exposes the following routes to the client:
 > | `200`         | `application/json`                | `USER`   |
 > | `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
 
+</details>
+
 <details>
  <summary><code>GET</code> <code><b>/plugin/allyabase/bdo</b></code> <code>Gets the user's BDO</code></summary>
 
@@ -38,6 +40,7 @@ To facilitate this, the plugin exposes the following routes to the client:
 > | `200`         | `application/json`                | `USER`   |
 > | `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
 
+</details>
 
 <details>
  <summary><code>PUT</code> <code><b>/plugin/allyabase/bdo</b></code> <code>Puts a new bdo or updates the bdo for the user</code></summary>
@@ -57,6 +60,102 @@ To facilitate this, the plugin exposes the following routes to the client:
 > | `200`         | `application/json`                | `USER`   |
 > | `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
 
+</details>
+
+<details>
+ <summary><code>POST</code> <code><b>/plugin/allyabase/grant-nineum</b></code> <code>grants a nineum to a user. Requires the wiki owner to have an admin or galactic nineum</code></summary>
+
+##### Parameters
+
+> | name         |  required     | data type               | description                                                           |
+> |--------------|-----------|-------------------------|-----------------------------------------------------------------------|
+> | toUUID       |  true     | string (hex)            | the uuid of the user to grant the nineum  |
+> | flavor       |  true     | string (hex)            | the flavor of nineum to grant |
+
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`                | `USER`   |
+> | `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+
+</details>
+
+<details>
+ <summary><code>POST</code> <code><b>/plugin/allyabase/grant-admin-nineum</b></code> <code>grants an admin nineum to a user</code></summary>
+
+##### Parameters
+
+> | name         |  required     | data type               | description                                                           |
+> |--------------|-----------|-------------------------|-----------------------------------------------------------------------|
+> | toUUID       |  true     | string (hex)            | the uuid of the user to grant the nineum  |
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`                | `USER`   |
+> | `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+
+</details>
+
+<details>
+ <summary><code>POST</code> <code><b>/plugin/allyabase/transfer</b></code> <code>transfer nineum to another user</code></summary>
+
+##### Parameters
+
+> | name         |  required     | data type               | description                                                           |
+> |--------------|-----------|-------------------------|-----------------------------------------------------------------------|
+> | toUUID       |  true     | string (hex)            | the uuid of the user to grant the nineum  |
+> | nineum       |  true     | array of nineum hex strings | the nineum to transfer |
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`                | `USER`   |
+> | `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+
+</details>
+
+<details>
+ <summary><code>GET</code> <code><b>/plugin/allyabase/sign/:thing</b></code> <code>creates a signature from the thing to sign</code></summary>
+
+##### Parameters
+
+> | name         |  required     | data type               | description                                                           |
+> |--------------|-----------|-------------------------|-----------------------------------------------------------------------|
+> | thing        |  true     | string                  | the uuid of the user to grant the nineum  |
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`                | `{signature: <signature>}`   |
+> | `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
+
+</details>
+
+<details>
+ <summary><code>GET</code> <code><b>/plugin/allyabase/verify</b></code> <code>verifies a signature</code></summary>
+
+##### Parameters
+
+> | name         |  required     | data type               | description                                                           |
+> |--------------|-----------|-------------------------|-----------------------------------------------------------------------|
+> | signature    |  true     | string (hex)            | the signature to verify  |
+> | message      |  true     | string                  | the message to check |
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`                | `USER`   |
+> | `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`
+|
+
+</details>
 
 ## License
 

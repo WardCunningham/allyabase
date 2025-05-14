@@ -155,7 +155,7 @@ console.log('the grantee now looks like: ', grantee);
   });
 
   app.post('/plugin/allyabase/transfer', async function(req, res) {
-    const uuid = req.body.uuid;
+    const uuid = allyabaseUser.fountUser.uuid;
     const toUUID = req.body.toUUID;
     const nineum = req.body.nineum;
     const transferNineum = await fount.transferNineum(uuid, toUUID, nineum, 0, 'usd'); // priced transfers not supported yet
