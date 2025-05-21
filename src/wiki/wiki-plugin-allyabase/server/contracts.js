@@ -195,7 +195,7 @@ console.log('getting the user on the server, it looks like: ', fountUser);
     message = req.query.message;
     pubKey = argv.pub_key;
     verified = sessionless.verifySignature(signature, message, pubKey);
-    return res.send('' + verified);
+    return res.send({verified});
   });
 
   app.get('/plugin/allyabase/abelard', async function(req, res) {

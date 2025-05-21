@@ -74,6 +74,3 @@ ENV PM2_LOG_DATE_FORMAT="YYYY-MM-DD HH:mm:ss.SSS"
 
 CMD ["./start.sh"]
 
-RUN nohup wiki --security_type=sessionless --id /root/.wiki/status/owner.json --security=./security --cookieSecret=youshouldprobablyputadifferentsecrethere --session_duration=10 --port=4444 --private_key=<put your private key here> --pub_key=<put your pub key here> &
-
-
