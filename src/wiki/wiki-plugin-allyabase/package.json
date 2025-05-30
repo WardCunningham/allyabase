@@ -1,7 +1,7 @@
 {
-  "name": "wiki-plugin-contract",
+  "name": "wiki-plugin-allyabase",
   "version": "0.0.1",
-  "description": "Contract plugin for the federated wiki",
+  "description": "Allyabase plugin for the federated wiki",
   "keywords": [
     "wiki",
     "federated",

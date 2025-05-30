@@ -18,9 +18,8 @@
       sudo apt install docker-ce
      sudo systemctl status docker
      git clone git@github.com:planet-nine-app/allyabase.git
-     cd allyabase/
-     docker build -t allyabase .
-     docker run -d -p 2999:2999 -p 3000:3000 -p 3001:3001 -p 3002:3002 -p 3003:3003 -p 3004:3004 -p 3005:3005 -p 3006:3006 allyabase
+     cd allyabase/deployment/docker
+     ./build_and_run.sh
      apt install nginx
      vi /etc/nginx/sites-available/default // copy placeholder nginx file here 
     sudo apt install certbot python3-certbot-nginx
