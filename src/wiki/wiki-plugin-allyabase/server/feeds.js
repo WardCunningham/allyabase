@@ -3,6 +3,8 @@ var sessionless = require('sessionless-node');
 var fs = require('fs');
 
 async function addRoutes(params) {
+// TODO: Fix this
+/*
   const app = params.app;
   const argv = params.argv;
 
@@ -22,6 +24,7 @@ async function addRoutes(params) {
     const updatedUser = await dolores.getUser(doloresUser.uuid);
     res.send(updatedUser.feeds);
   });
+*/
 };
 
 module.exports = {addRoutes};

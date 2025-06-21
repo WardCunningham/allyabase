@@ -1,5 +1,6 @@
 var _fount = require('fount-js');
 var _bdo = require('bdo-js');
+var _gateway = require('magic-gateway-js');
 var sessionless = require('sessionless-node');
 var fs = require('fs');
 
@@ -17,6 +18,11 @@ let fountUser;
 async function addRoutes(params) {
   const app = params.app;
   const argv = params.argv;
+
+  if(!argv.private_key) {
+    console.warn('You have included the allyabase plugin without providing a private key. allyabase will be unavailable.');
+    return;
+  }
 
   let allyabaseUser = {};
   
